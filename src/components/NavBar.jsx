@@ -16,15 +16,12 @@ function NavBar({qty, sum}) {
                    <Title order={1} variant="gradient"
                         gradient={{ from: 'indigo', to: 'red', deg: 45 }}
                         sx={{ fontFamily: 'Greycliff CF, sans-serif' }}>
-                        MySuperShop
+                        MyShop
                     </Title>
                 </Link>
                 <Group position="center" spacing="xl">
                     <Text size="xl" weight={500}>
                         <Link href="/">Shop</Link>
-                    </Text>
-                    <Text size="xl" weight={500}>
-                        Group
                     </Text>
                     <Text size="xl" weight={500}>
                         Help
