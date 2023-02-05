@@ -3,15 +3,17 @@ import { productsKey, listProducts } from "../pages/api/ApiProduct";
 import swr from "swr";
 import { useState } from "react";
 import useCartStore from "@/store/useCartStore"
-import { Grid, Title ,Card, Text, Badge, Button, Group, Input } from '@mantine/core';
-import { IconShoppingCart } from '@tabler/icons';
+import { Grid, Title ,Card, Text, Badge, Button, Group, Input, Affix, Transition } from '@mantine/core';
+import { IconShoppingCart, IconArrowUp } from '@tabler/icons';
 import LoaderBar from './Loading';
 import Image from 'next/image';
 import { showNotification } from '@mantine/notifications';
+import { useWindowScroll } from '@mantine/hooks';
 
 
 export default function ProductList() {
 
+  const [scroll, scrollTo] = useWindowScroll();
   /**
    * Get product, use SWR
    */
@@ -35,6 +37,7 @@ export default function ProductList() {
         id: product.id,
         title: product.title,
         price: product.price,
+        image: product.image,
         qty: qty,
         sum: product,
         sumPosition: qty * product.price
@@ -60,6 +63,20 @@ export default function ProductList() {
   }
   return (
     <> 
+      <Affix position={{ bottom: 20, right: 20 }}>
+        <Transition transition="slide-up" mounted={scroll.y > 0}>
+          {(transitionStyles) => (
+            <Button
+              color={'orange'}
+              leftIcon={<IconArrowUp size={16} />}
+              style={transitionStyles}
+              onClick={() => scrollTo({ y: 0 })}
+            >
+              To top
+            </Button>
+          )}
+        </Transition>
+      </Affix>
         { isLoading ? <LoaderBar /> :
             error ? "Error load product":
             products.map((product) => {
