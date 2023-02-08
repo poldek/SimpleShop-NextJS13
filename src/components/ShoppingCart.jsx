@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import useCartStore from "@/store/useCartStore"
 import isLoading from '@/pages/hooks/isLoading';
+import Confetti from 'react-confetti'
 import {
   Avatar,
-  Badge,
   Table,
   Group,
   Text,
@@ -24,6 +24,7 @@ function ShoppingCart() {
   const sumCart = useCartStore(state => state.cartSum);
   const clearCart = useCartStore((state) => state.clearCart);
   const removePositionCart = useCartStore((state) => state.removePositionCart);
+  const [isExploding, setIsExploding] = useState(false);
   
   /**
    * Simple solution, wait for initlilize page
@@ -37,13 +38,32 @@ function ShoppingCart() {
   const removeCartPosition = (payload) => { 
     removePositionCart(payload);
   }
+
+  const config = {
+    angle: 90,
+    spread: 360,
+    startVelocity: 40,
+    elementCount: 70,
+    dragFriction: 0.12,
+    duration: 1000,
+    stagger: 3,
+    width: "10px",
+    height: "10px",
+    perspective: "500px",
+    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+  };
+
+  const showConfetti = () => {
+    setIsExploding(!isExploding)
+  }
+
   return (
-    
     <Container>
     {isLoadingPage ? 
      productCart.length > 0 ? 
         <>
           <Group position="right" mt="md" mb="xs">
+          {isExploding ? <Confetti config={config} /> : null}
           <Button color={'orange'} onClick={clearCart}>Clear shopping cart</Button>
           </Group>
           <ScrollArea>
@@ -129,6 +149,12 @@ function ShoppingCart() {
                Tax: 12%
               </Text>
           </Group>
+          <Group position="right" mt="md" mb="xs">
+              <Button  onClick={showConfetti}>
+                  Pay order
+            </Button>
+          </Group>
+          
           </ScrollArea>
           </>
             : <EmptyCart />
