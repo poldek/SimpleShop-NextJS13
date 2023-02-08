@@ -1,21 +1,20 @@
 import React from 'react'
 import Image from 'next/image'
-import { Card } from '@mantine/core'
+import { Card, Tooltip } from '@mantine/core'
 export default function Hero() {
   return (
-   
-          <Card shadow="sm" p="xl" radius="md" withBorder>
+        <Tooltip label="Image from: https://www.vecteezy.com/ Author: Sarin Wongweash ">
+            <Card shadow="sm" p="xl" radius="md" withBorder>
                 <Card.Section>
                     <Image
                         width={930}
-                        height={180}
-                        src="/banner-free-vector.jpg"
+                        height={210}
+                        src="/banner3.jpg"
                         alt="Shop Herro"
                         priority
                     />
                 </Card.Section>
             </Card>
-
- 
+        </Tooltip>
   )
 }

@@ -65,15 +65,14 @@ function ShoppingCart() {
                     <td>
                       <Group spacing="sm">
                         <Avatar size={36} src={cart.image} />
-                          <Text size="sm" weight={500}>
+                          <Text size="xs" weight={500} truncate>
                             {cart.title}
                           </Text>
                       </Group>
                     </td>
                     <td>
                     <Group position="center" spacing="xl">
-                        <Indicator label={cart.qty} inline size={22} color="orange">
-                        </Indicator>
+                        <Indicator label={cart.qty} inline size={32} color="blue"/>
                     </Group>
                     </td>
                     <td>

@@ -9,7 +9,7 @@ import Layout from "@/components/_layout";
 function MyApp({ Component, pageProps }) {
     const [colorScheme, setColorScheme] = useLocalStorage({
     key: 'mantine-color-scheme',
-    defaultValue: 'dark',
+    defaultValue: 'light',
     getInitialValueInEffect: true,
   });
   

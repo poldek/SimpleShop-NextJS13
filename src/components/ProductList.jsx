@@ -92,6 +92,8 @@ export default function ProductList() {
                                   my={5}
                                   mx={5}
                                   fit="fill"
+                                  blurDataURL='/blur.png'
+                                  placeholder="blur"
                                   src={product.image}
                                   alt={product.title}
                               />

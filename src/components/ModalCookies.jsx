@@ -13,9 +13,9 @@ function ModalCookies() {
     const theme = useMantineTheme();
   return (
     <Modal
-      overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]}
+      overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[12]}
       overlayOpacity={0.55}
-      overlayBlur={5}
+      overlayBlur={1}
       centered
       transition="fade"
       transitionDuration={600}
