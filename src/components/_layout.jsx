@@ -9,8 +9,8 @@ export default function Layout({ children }) {
   
   return (
     <>
-    <NavBar qty={productCart.length} sum={sumCart}/>
       <Container>
+        <NavBar qty={productCart.length} sum={sumCart}/>
         <Hero />
       </Container>
       <main>

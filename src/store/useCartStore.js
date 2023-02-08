@@ -6,12 +6,21 @@ import {persist, devtools} from "zustand/middleware";
 let useCartStore = (set) => ({
   cart: [],
   cartSum: 0,
+  cookies: false,
 
+  /**
+   * 
+   * add postion cart 
+   */
   addCartPosition: (addCart) => set((state) => ({ 
          cart: [ ...state.cart, addCart],
          cartSum : state.cartSum += addCart.qty * addCart.price,
   })),
 
+  /**
+   * 
+   * clear cart
+   */
   clearCart: () => set(
       produce((draft) => {
         while(draft.cart.length > 0) {
@@ -21,6 +30,10 @@ let useCartStore = (set) => ({
       })
     ),
 
+    /**
+     * 
+     * remove position from cart
+     */
     removePositionCart: (payload) => set(
       produce((draft) => {
         const itemRemove = draft.cart.findIndex((el) => el.id === payload.id);
@@ -35,7 +48,10 @@ let useCartStore = (set) => ({
       })
     ),  
   
- 
+  /**
+   * 
+   * add new qty for exist position in cart 
+   */
   setQtyForExistPosition: (payload, qty) => set(
       produce((draft) => {
         const product = draft.cart.find((el) => el.id === payload.id);
@@ -51,7 +67,10 @@ let useCartStore = (set) => ({
       })
     ),
 
-  
+  /**
+   * 
+   * add qty 
+   */
   addQtyForPosition: (payload) => set(
       produce((draft) => {
         const product = draft.cart.find((el) => el.id === payload);
@@ -64,7 +83,11 @@ let useCartStore = (set) => ({
         }
       })
     ),
-
+  
+  /**
+   * 
+   * remove qty
+   */  
   removeQtyForPosition: (payload) => set(
     produce((draft) => {
       const product = draft.cart.find((el) => el.id === payload);
@@ -87,10 +110,21 @@ let useCartStore = (set) => ({
       }
     })
   ),
+  
+  /**
+   * 
+   * Accept cookies  
+   */
+   acceptCookie: (action) => set((state) => ({ 
+         cookies : state.cookies = action,
+  })),
+
 })
 
+
+
 useCartStore = devtools(useCartStore);
-useCartStore = persist(useCartStore, {name: 'user_cart'});
+useCartStore = persist(useCartStore, {name: 'user_shop'});
 const usStore = create(useCartStore);
 
 export default usStore;

@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { MantineProvider,ColorSchemeProvider} from "@mantine/core";
+import { ModalsProvider } from '@mantine/modals';
 import { useLocalStorage } from '@mantine/hooks';
 import { NotificationsProvider } from '@mantine/notifications';
 import Layout from "@/components/_layout";
@@ -22,13 +23,15 @@ function MyApp({ Component, pageProps }) {
               withGlobalStyles
               withNormalizeCSS
               theme={{
-                colorScheme: "light",
+                colorScheme: colorScheme,
               }}
-            >
+            >  
             <NotificationsProvider position="top-center" zIndex={2077}>
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
+               <ModalsProvider>
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+              </ModalsProvider>
             </NotificationsProvider>
           </MantineProvider>
       </ColorSchemeProvider>

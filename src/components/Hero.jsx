@@ -10,7 +10,8 @@ export default function Hero() {
                         width={930}
                         height={180}
                         src="/banner-free-vector.jpg"
-                        alt="Hero image"
+                        alt="Shop Herro"
+                        priority
                     />
                 </Card.Section>
             </Card>
