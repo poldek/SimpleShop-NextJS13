@@ -16,7 +16,6 @@ function ModalCookies() {
       overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[12]}
       overlayOpacity={0.55}
       overlayBlur={1}
-      centered
       transition="fade"
       transitionDuration={600}
       transitionTimingFunction="ease"

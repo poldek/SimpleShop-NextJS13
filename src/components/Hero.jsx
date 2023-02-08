@@ -9,7 +9,7 @@ export default function Hero() {
                     <Image
                         width={930}
                         height={210}
-                        src="/banner3.jpg"
+                        src="/banner2.jpg"
                         alt="Shop Herro"
                         priority
                     />

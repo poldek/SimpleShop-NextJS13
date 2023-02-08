@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Loader, Paper, Container } from '@mantine/core';
+import { Flex, Loader} from '@mantine/core';
 
 function LoaderBar() {
   return (
@@ -12,7 +12,7 @@ function LoaderBar() {
         wrap="wrap"
         my={150}
     >
-        <Loader variant="bars" size={50} />
+        <Loader variant="dots" color={'orange'} size={80} />
     </Flex>
 
   )

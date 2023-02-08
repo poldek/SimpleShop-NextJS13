@@ -52,7 +52,7 @@ function NavBar({qty, sum}) {
                                 </Link>
                             </Indicator>
                         </Tooltip>
-                          <Switch mb={15} mx={7}
+                          <Switch mb={15} mx={20}
                                 checked={colorScheme === 'dark'}
                                 onChange={() => toggleColorScheme()}
                                 size="lg"
