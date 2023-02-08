@@ -1,6 +1,7 @@
 import React from 'react'
 import { Group, Paper, Title, Button } from '@mantine/core';
 import Link from 'next/link';
+import CartFooter from './CartFooter';
 
 function EmptyCart() {
   return (

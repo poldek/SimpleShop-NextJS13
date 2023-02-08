@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import useCartStore from "@/store/useCartStore"
 import isLoading from '@/pages/hooks/isLoading';
 import Confetti from 'react-confetti'
@@ -15,6 +15,7 @@ import {
 } from '@mantine/core';
 import { IconMinus, IconPlus, IconTrash } from '@tabler/icons';
 import EmptyCart from './EmptyCart';
+import CartFooter from './CartFooter';
 
 function ShoppingCart() {
   
@@ -45,8 +46,8 @@ function ShoppingCart() {
     startVelocity: 40,
     elementCount: 70,
     dragFriction: 0.12,
-    duration: 1000,
-    stagger: 3,
+    duration: 3000,
+    stagger: 1,
     width: "10px",
     height: "10px",
     perspective: "500px",
@@ -159,6 +160,7 @@ function ShoppingCart() {
           </>
             : <EmptyCart />
       : null }
+      <CartFooter />
     </Container>
   )
 }
