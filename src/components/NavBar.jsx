@@ -15,7 +15,7 @@ function NavBar({qty, sum}) {
  
  let sumCart = `Cart total: ${sum.toFixed(2)}$`
   return (
-    <Box pb={10}>
+    <Box pb={50}>
         <Header height={100}>
             <Group position="apart" sx={{ height: "100%" }}>
                 <Link href="/" >
@@ -52,7 +52,7 @@ function NavBar({qty, sum}) {
                                 </Link>
                             </Indicator>
                         </Tooltip>
-                          <Switch mb={15} mx={20}
+                          <Switch mb={15} mx={0}
                                 checked={colorScheme === 'dark'}
                                 onChange={() => toggleColorScheme()}
                                 size="lg"
